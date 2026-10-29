@@ -18,12 +18,13 @@ No concept is accepted until it holds on three axes:
 
 ## Layout
 Shared, from-scratch vector primitives (`dot`, `norm`, `normalize`, …) live in
-`vectorops.py` at the repository root; every exercise imports them instead of
+[`vectorops.py`](./vectorops.py) at the repository root; every exercise imports them instead of
 re-implementing them.
 
 | # | Exercise | Key concept | Code |
 |---|----------|-------------|------|
-| 01 | Dot product & rhombus | Dot product, orthogonality | `rhombus_check.py` |
+| 01 | Dot product & rhombus | Dot product, orthogonality | [`rhombus_check.py`](./linear-algebra/01-dot-product-rhombus/rhombus_check.py) |
+| 02 | Cauchy–Schwarz & steepest ascent | Gradient direction | [`verify.py`](./linear-algebra/02-cauchy-schwarz-steepest-ascent/verify.py) |
 
 ## Running the code
 No dependencies. Python 3 is enough. Run from the repository root:
