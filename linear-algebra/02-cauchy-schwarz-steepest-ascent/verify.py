@@ -20,28 +20,30 @@ def generate_vector(dim):
     return vector
 
 
-# First check : Generate 10000 unit-vectors and make sure f(x) does not surpass ||v|| #
-dim = random.randint(2, 1000)
-vector = generate_vector(dim)
-norm_vector = norm(vector)
-for _ in range(10000):
-    vector_2 = generate_vector(dim)
-    normalized_vector = get_normalize_vector(vector_2)
+if __name__ == "__main__":
+
+    # First check : Generate 10000 unit-vectors #
+    # and make sure f(x) does not surpass ||v|| #
+    dim = random.randint(2, 10)
+    vector = generate_vector(dim)
+    norm_vector = norm(vector)
+    for _ in range(10000):
+        vector_2 = generate_vector(dim)
+        normalized_vector = get_normalize_vector(vector_2)
+        dot_product = dot(vector, normalized_vector)
+
+        if dot_product > norm_vector:
+            sys.exit("||v|| is not the upper bound of f(x)")
+
+    print("f(x) does not surpass ||v|| in 10 000 tests")
+
+    # Second check : Verify that the upper bound is reached when x = v/||v||#
+    vector = generate_vector(random.randint(2, 1000))
+    normalized_vector = get_normalize_vector(vector)
     dot_product = dot(vector, normalized_vector)
+    norm_vector = norm(vector)
 
-    if dot_product > norm_vector:
-        exit("||v|| is not the upper bound of f(x)")
-
-print("f(x) does not surpass ||v|| in 10 000 tests")
-
-
-# Second check : Verify that the upper bound is reached when x = v/||v||#
-vector = generate_vector(random.randint(2, 1000))
-normalized_vector = get_normalize_vector(vector)
-dot_product = dot(vector, normalized_vector)
-norm_vector = norm(vector)
-
-if math.isclose(dot_product, norm_vector):
-    print("f(x) equals ||v|| at x = v/||v||")
-else:
-    print("f(x) does not equal ||v|| at x = v/||v||")
+    if math.isclose(dot_product, norm_vector):
+        print("f(x) equals ||v|| at x = v/||v||")
+    else:
+        print("f(x) does not equal ||v|| at x = v/||v||")

@@ -1,16 +1,15 @@
 import math
-import sys
 
 
 def dot(u, v):
 
     if len(u) != len(v) or len(u) < 1:
-        sys.exit("Error, vector the two vectors should be of dimension n.")
+        raise ValueError("Error, vector the two vectors should be of dimension n.")
 
     result = 0
 
     for i in range(len(u)):
-        result += float(u[i] * v[i])
+        result += u[i] * v[i]
 
     return result
 
@@ -18,12 +17,12 @@ def dot(u, v):
 def add(u, v):
 
     if len(u) != len(v) or len(u) < 1:
-        sys.exit("Error, vector the two vectors should be of dimension n.")
+        raise ValueError("Error, vector the two vectors should be of dimension n.")
 
     result = [0 for _ in range(len(u))]
 
     for i in range(len(u)):
-        result[i] += u[i] + v[i]
+        result[i] = u[i] + v[i]
 
     return result
 
@@ -31,7 +30,7 @@ def add(u, v):
 def norm(u):
 
     if len(u) < 1:
-        sys.exit("Error, vector size must be >= 1.")
+        raise ValueError("Error, vector size must be >= 1.")
 
     result = 0
     for i in range(len(u)):
@@ -43,11 +42,11 @@ def norm(u):
 def get_normalize_vector(u):
 
     if len(u) < 1:
-        sys.exit("Error, vector size must be >= 1.")
+        raise ValueError("Error, vector size must be >= 1.")
 
     u_norm = norm(u)
     if u_norm == 0:
-        sys.exit("Don't use a vector with a norm equal to 0.")
+        raise ValueError("Don't use a vector with a norm equal to 0.")
 
     result = [0 for _ in range(len(u))]
 
@@ -60,11 +59,11 @@ def get_normalize_vector(u):
 def get_negative_vector(u):
 
     if len(u) < 1:
-        sys.exit("Error, vector size must be >= 1.")
+        raise ValueError("Error, vector size must be >= 1.")
 
     result = [0 for _ in range(len(u))]
 
     for i in range(len(u)):
-        result[i] -= u[i]
+        result[i] = -u[i]
 
     return result

@@ -1,6 +1,7 @@
 import random
 import sys
 import os
+import math
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 from vectorops import dot, add, get_normalize_vector, get_negative_vector
 
@@ -25,7 +26,13 @@ def generate_two_rhombus_sides(dim):
     return (get_normalize_vector(vector_1), get_normalize_vector(vector_2))
 
 
-a, b = generate_two_rhombus_sides(5)
-a_negative = get_negative_vector(a)
-ret = dot(add(a, b), add(b, a_negative))
-print(ret)
+if __name__ == "__main__":
+
+    a, b = generate_two_rhombus_sides(5)
+    a_negative = get_negative_vector(a)
+    ret = dot(add(a, b), add(b, a_negative))
+
+    if math.isclose(ret, 0.0, abs_tol=1e-9):
+        print("The two diagonals of a rhombus are perpendicular.")
+    else:
+        print("The two diagonals of a rhombus are not perpendicular.")
