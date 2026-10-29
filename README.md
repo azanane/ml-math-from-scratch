@@ -9,7 +9,6 @@ At 42 School, I've mostly learned the power of self-study.
 This is why I'm trying to make my way towards AI research by studying
 and building mathematical concepts applied to Machine Learning from scratch.
 
-
 ## Method: the 3 pillars
 No concept is accepted until it holds on three axes:
 1. **Vision** — the geometric intuition of what happens in space.
@@ -18,14 +17,18 @@ No concept is accepted until it holds on three axes:
    that acts as the final judge of the concept.
 
 ## Layout
+Shared, from-scratch vector primitives (`dot`, `norm`, `normalize`, …) live in
+`vectorops.py` at the repository root; every exercise imports them instead of
+re-implementing them.
+
 | # | Exercise | Key concept | Code |
 |---|----------|-------------|------|
-| 01 | Dot product & rhombus | Dot product, orthogonality | `dot.py` |
+| 01 | Dot product & rhombus | Dot product, orthogonality | `rhombus_check.py` |
 
 ## Running the code
-No dependencies. Python 3 is enough:
+No dependencies. Python 3 is enough. Run from the repository root:
 ```bash
-python3 linear-algebra/01-dot-product-rhombus/dot.py
+python3 linear-algebra/01-dot-product-rhombus/rhombus_check.py
 ```
 
 ## A note on honesty

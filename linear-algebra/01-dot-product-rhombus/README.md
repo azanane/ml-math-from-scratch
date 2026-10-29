@@ -41,18 +41,19 @@ $$\vec d_1 \cdot \vec d_2 = 0 \quad\Longrightarrow\quad \vec d_1 \perp \vec d_2.
 > This proof uses no coordinates and holds in any dimension $n$.
 
 ## Code — the judge
-`dot.py` implements the dot product from scratch (pure Python, no libraries),
-working in any dimension `n`. To test the rhombus proof, it builds a random
-rhombus in dimension 5 — two random sides forced to equal length by
-normalization — then computes the dot product of the two diagonals,
+The dot product and the other vector primitives are implemented from scratch
+(pure Python, no libraries) in [`vectorops.py`](../vectorops.py) at the repository root, and work
+in any dimension `n`. To test the rhombus proof, [`rhombus_check.py`](rhombus_check.py) imports them,
+builds a random rhombus in dimension 5 — two random sides forced to equal length
+by normalization — then computes the dot product of the two diagonals,
 `dot(a + b, b - a)`.
 
-Most of the time, the result is not exactly `0`; it comes out around `1e-16`. This is not a flaw
-in the proof — it is floating-point rounding. A 64-bit float stores only about
-15–16 significant digits, and, more fundamentally, the machine works in binary:
-most real numbers (even simple ones like `0.1`) have no exact finite binary
-representation, so they are rounded the moment they are stored. These tiny
-errors accumulate and land near, but not exactly on, zero.
+The result is essentially never exactly `0`; it comes out around `1e-16`. This is
+not a flaw in the proof — it is floating-point rounding. A 64-bit float stores only
+about 15–16 significant digits, and, more fundamentally, the machine works in
+binary: most real numbers (even simple ones like `0.1`) have no exact finite binary
+representation, so they are rounded the moment they are stored. These tiny errors
+accumulate and land near, but not exactly on, zero.
 
 The rule that follows: never test floating-point values with `== 0`. Use
 `abs(x) < epsilon` instead — the same rule that governs the stopping criterion
