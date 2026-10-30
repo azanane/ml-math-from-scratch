@@ -42,7 +42,7 @@ $$\vec d_1 \cdot \vec d_2 = 0 \quad\Longrightarrow\quad \vec d_1 \perp \vec d_2.
 
 ## Code — the judge
 The dot product and the other vector primitives are implemented from scratch
-(pure Python, no libraries) in [`vectorops.py`](../vectorops.py) at the repository root, and work
+(pure Python, no libraries) in [`vectorops.py`](../../vectorops.py) at the repository root, and work
 in any dimension `n`. To test the rhombus proof, [`rhombus_check.py`](rhombus_check.py) imports them,
 builds a random rhombus in dimension 5 — two random sides forced to equal length
 by normalization — then computes the dot product of the two diagonals,

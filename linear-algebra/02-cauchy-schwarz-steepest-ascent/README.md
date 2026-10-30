@@ -55,4 +55,4 @@ whose default *relative* tolerance scales with the size of the numbers.
 
 
 ## Takeaway
-A dot product with a fixed vector is maximized if the other term is its unit-vector.
+A dot product with a fixed vector is maximized if the other term is its unit vector.
